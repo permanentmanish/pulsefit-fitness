@@ -293,8 +293,6 @@ p {
   display: flex;
   align-items: center;
   background-color: rgba(12, 13, 15, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
 
