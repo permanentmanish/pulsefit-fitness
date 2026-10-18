@@ -1669,6 +1669,156 @@ a.card:focus-visible .card-icon {
   }
 }
 
+/* =========================================================
+   PULSEFIT — SITE-WIDE INTERACTION POLISH
+   Applies to buttons, links, cards, navigation and controls.
+   ========================================================= */
+
+/* Shared transitions and removal of the default blue tap flash */
+a,
+button,
+summary,
+[role="button"],
+input,
+select,
+textarea,
+.nav-desktop a,
+.mobile-menu-nav a,
+.footer-links a,
+.footer-contact a,
+a.card,
+.btn,
+.nav-toggle,
+.faq-item summary {
+  -webkit-tap-highlight-color: transparent;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    box-shadow,
+    transform,
+    filter;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Links across the site */
+a:not(.btn):hover {
+  color: var(--accent-hover);
+}
+
+a:not(.btn):active {
+  color: var(--accent-hover);
+  filter: brightness(0.92);
+}
+
+/* Main buttons: lift gently on hover */
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Clear but subtle focus glow for keyboard users */
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(183, 240, 0, 0.18);
+}
+
+/* Satisfying press feedback for every button variant */
+.btn:active {
+  transform: translateY(1px) scale(0.97);
+  filter: brightness(0.95);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.14),
+    0 0 0 2px rgba(183, 240, 0, 0.14);
+}
+
+/* Desktop navigation: subtle upward movement and accent colour */
+.nav-desktop a:hover {
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* Mobile navigation: soft highlight and a short slide on tap */
+.mobile-menu-nav a:not(.btn):hover,
+.mobile-menu-nav a:not(.btn):focus-visible {
+  background-color: rgba(183, 240, 0, 0.055);
+}
+
+.mobile-menu-nav a:not(.btn):active {
+  background-color: rgba(183, 240, 0, 0.12);
+  transform: translateX(3px);
+}
+
+/* Hamburger control */
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+  background-color: rgba(183, 240, 0, 0.08);
+  box-shadow: 0 0 0 1px rgba(183, 240, 0, 0.18);
+}
+
+.nav-toggle:active {
+  transform: scale(0.94);
+  background-color: rgba(183, 240, 0, 0.14);
+}
+
+/* Clickable cards: subtle lift and soft edge glow */
+a.card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.22),
+    0 0 0 1px rgba(183, 240, 0, 0.10);
+}
+
+a.card:active {
+  transform: scale(0.99);
+  filter: brightness(0.97);
+  box-shadow: inset 0 0 0 1px rgba(183, 240, 0, 0.24);
+}
+
+/* FAQ questions: clearer interactive feedback */
+.faq-item summary {
+  cursor: pointer;
+}
+
+.faq-item summary:hover {
+  color: var(--accent-hover);
+}
+
+.faq-item summary:active {
+  transform: scale(0.995);
+}
+
+/* Subtle feedback for other interactive controls */
+button:active,
+summary:active,
+[role="button"]:active,
+input:active,
+select:active,
+textarea:active {
+  filter: brightness(0.94);
+}
+
+/* Accessibility: keep interactions calm when reduced motion is requested */
+@media (prefers-reduced-motion: reduce) {
+  a,
+  button,
+  summary,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  .btn,
+  .nav-toggle,
+  .nav-desktop a,
+  .mobile-menu-nav a,
+  .footer-links a,
+  .footer-contact a,
+  a.card,
+  .faq-item summary {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* =========================================================
    PULSEFIT — FAST, POLISHED SITE-WIDE INTERACTIONS
@@ -1769,4 +1919,3 @@ a.card:active {
     transition: none !important;
   }
 }
-
